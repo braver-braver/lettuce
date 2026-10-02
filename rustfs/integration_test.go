@@ -3,11 +3,13 @@
 package rustfs
 
 import (
+	"context"
 	"errors"
 	"io"
 	"os"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
@@ -46,11 +48,14 @@ func TestIntegrationStore(t *testing.T) {
 		t.Fatalf("CreateBucket() error = %v", err)
 	}
 	t.Cleanup(func() {
-		_, _ = client.DeleteObject(t.Context(), &s3.DeleteObjectInput{
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
+
+		_, _ = client.DeleteObject(ctx, &s3.DeleteObjectInput{
 			Bucket: aws.String(bucket),
 			Key:    aws.String(key),
 		})
-		_, _ = client.DeleteBucket(t.Context(), &s3.DeleteBucketInput{
+		_, _ = client.DeleteBucket(ctx, &s3.DeleteBucketInput{
 			Bucket: aws.String(bucket),
 		})
 	})
