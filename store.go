@@ -48,7 +48,7 @@ type ByteRange struct {
 // Validate reports whether the byte range can be represented by all supported
 // backends.
 func (r ByteRange) Validate() error {
-	if r.Offset < 0 {
+	if r.Offset < 0 || r.Length < 0 {
 		return &Error{Op: "range", Err: ErrInvalid}
 	}
 	return nil
