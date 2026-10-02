@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/transientvariable/lettuce/client"
-	"github.com/transientvariable/lettuce/cluster/filer"
-	"github.com/transientvariable/lettuce/cluster/volume"
+	"github.com/braver-braver/lettuce/client"
+	"github.com/braver-braver/lettuce/cluster/filer"
+	"github.com/braver-braver/lettuce/cluster/volume"
 	"github.com/transientvariable/log-go"
 )
 

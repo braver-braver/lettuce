@@ -8,8 +8,8 @@ import (
 	"sync/atomic"
 
 	"github.com/transientvariable/fs-go"
-	"github.com/transientvariable/lettuce/cluster/filer"
-	"github.com/transientvariable/lettuce/pb/filer_pb"
+	"github.com/braver-braver/lettuce/cluster/filer"
+	"github.com/braver-braver/lettuce/pb/filer_pb"
 	"github.com/transientvariable/log-go"
 )
 

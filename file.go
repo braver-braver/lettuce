@@ -8,9 +8,9 @@ import (
 	"sync"
 
 	"github.com/transientvariable/fs-go"
-	"github.com/transientvariable/lettuce/chunk"
-	"github.com/transientvariable/lettuce/cluster/filer"
-	"github.com/transientvariable/lettuce/support"
+	"github.com/braver-braver/lettuce/chunk"
+	"github.com/braver-braver/lettuce/cluster/filer"
+	"github.com/braver-braver/lettuce/support"
 	"github.com/transientvariable/log-go"
 
 	gofs "io/fs"

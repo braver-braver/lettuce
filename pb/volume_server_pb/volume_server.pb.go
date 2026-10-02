@@ -7,7 +7,7 @@
 package volume_server_pb
 
 import (
-	remote_pb "github.com/transientvariable/lettuce/pb/remote_pb"
+	remote_pb "github.com/braver-braver/lettuce/pb/remote_pb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

@@ -5,7 +5,7 @@ syntax = "proto3";
 
 package filer_pb;
 
-option go_package = "github.com/transientvariable/lettuce/pb/filer_pb";
+option go_package = "github.com/braver-braver/lettuce/pb/filer_pb";
 
 //////////////////////////////////////////////////
 

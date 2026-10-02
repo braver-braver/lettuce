@@ -5,7 +5,7 @@ syntax = "proto3";
 
 package master_pb;
 
-option go_package = "github.com/transientvariable/lettuce/pb/master_pb";
+option go_package = "github.com/braver-braver/lettuce/pb/master_pb";
 
 //////////////////////////////////////////////////
 

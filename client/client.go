@@ -15,7 +15,7 @@ import (
 
 	"github.com/cenkalti/backoff/v4"
 
-	ltconfig "github.com/transientvariable/lettuce/config"
+	ltconfig "github.com/braver-braver/lettuce/config"
 	gogrpc "google.golang.org/grpc"
 )
 

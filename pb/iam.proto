@@ -5,7 +5,7 @@ syntax = "proto3";
 
 package iam_pb;
 
-option go_package = "github.com/transientvariable/lettuce/pb/iam_pb";
+option go_package = "github.com/braver-braver/lettuce/pb/iam_pb";
 
 //////////////////////////////////////////////////
 
