@@ -35,6 +35,41 @@ Portable Go storage SDK. The repository currently retains its SeaweedFS file-sys
 ❯ go get -u github.com/braver-braver/lettuce
 ----
 
+
+== RustFS Backend
+
+RustFS is accessed through its S3-compatible API. Path-style addressing is used by default.
+
+[source%nowrap,go]
+----
+package main
+
+import (
+	"context"
+	"os"
+
+	"github.com/braver-braver/lettuce/rustfs"
+)
+
+func main() {
+	ctx := context.Background()
+
+	store, err := rustfs.New(ctx, rustfs.Config{
+		Endpoint:  "http://localhost:9000",
+		Bucket:    "files",
+		AccessKey:  os.Getenv("RUSTFS_ACCESS_KEY"),
+		SecretKey:  os.Getenv("RUSTFS_SECRET_KEY"),
+	})
+	if err != nil {
+		panic(err)
+	}
+
+	_ = store
+}
+----
+
+Set `VirtualHost: true` only when the RustFS deployment and DNS are configured for virtual-host bucket addressing.
+
 == Usage
 
 .Basic File Operations
