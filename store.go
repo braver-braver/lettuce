@@ -38,7 +38,7 @@ type ListOptions struct {
 	Limit int
 }
 
-// ByteRange selects a byte range within an object. Length <= 0 means read from
+// ByteRange selects a byte range within an object. Length == 0 means read from
 // Offset through the end of the object.
 type ByteRange struct {
 	Offset int64
