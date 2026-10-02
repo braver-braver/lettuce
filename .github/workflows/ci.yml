@@ -1,0 +1,66 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Verify module graph
+        run: |
+          go mod tidy
+          git diff --exit-code -- go.mod go.sum
+      - name: Test
+        run: go test ./...
+
+  rustfs-integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Start RustFS 1.0.0
+        run: |
+          docker volume create lettuce-rustfs-data
+          docker run --rm -v lettuce-rustfs-data:/data alpine:3.22 \
+            sh -c 'chown -R 10001:10001 /data'
+          docker run -d --name lettuce-rustfs \
+            -p 9000:9000 \
+            -e RUSTFS_VOLUMES=/data \
+            -e RUSTFS_ADDRESS=0.0.0.0:9000 \
+            -e RUSTFS_CONSOLE_ENABLE=false \
+            -e RUSTFS_ACCESS_KEY=lettuceadmin \
+            -e RUSTFS_SECRET_KEY=lettuce-secret-123456 \
+            -v lettuce-rustfs-data:/data \
+            rustfs/rustfs:1.0.0
+          for _ in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:9000/health >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs lettuce-rustfs
+          exit 1
+      - name: Test RustFS backend
+        env:
+          RUSTFS_ENDPOINT: http://127.0.0.1:9000
+          RUSTFS_ACCESS_KEY: lettuceadmin
+          RUSTFS_SECRET_KEY: lettuce-secret-123456
+        run: go test -tags=integration ./rustfs -run '^TestIntegrationStore$' -count=1
+      - name: RustFS logs on failure
+        if: failure()
+        run: docker logs lettuce-rustfs
