@@ -31,10 +31,6 @@ type OpenOptions struct {
 // ListOptions controls object listing. A zero value lists all objects below the
 // supplied prefix.
 type ListOptions struct {
-	// Delimiter groups keys at the first occurrence after prefix. Use "/" for
-	// directory-like listings. An empty delimiter returns a recursive listing.
-	Delimiter string
-
 	// StartAfter excludes keys less than or equal to this value.
 	StartAfter string
 
