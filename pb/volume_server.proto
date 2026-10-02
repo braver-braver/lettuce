@@ -4,7 +4,7 @@
 syntax = "proto3";
 
 package volume_server_pb;
-option go_package = "github.com/transientvariable/lettuce/pb/volume_server_pb";
+option go_package = "github.com/braver-braver/lettuce/pb/volume_server_pb";
 
 import "remote.proto";
 

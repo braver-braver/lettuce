@@ -6,8 +6,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/transientvariable/lettuce/client"
-	"github.com/transientvariable/lettuce/pb/filer_pb"
+	"github.com/braver-braver/lettuce/client"
+	"github.com/braver-braver/lettuce/pb/filer_pb"
 )
 
 // AssignVolume assigns a portion of file content (chunk) represented by the provided path to a volume server and

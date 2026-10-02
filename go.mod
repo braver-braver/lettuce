@@ -1,4 +1,4 @@
-module github.com/transientvariable/lettuce
+module github.com/braver-braver/lettuce
 
 go 1.24.1
 

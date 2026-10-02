@@ -23,7 +23,7 @@ CAUTION: WIP
 
 == Overview
 
-Go file system interface implementation for link:https://github.com/seaweedfs/seaweedfs[SeaweedFS].
+Portable Go storage SDK. The repository currently retains its SeaweedFS file-system implementation while a backend-neutral object storage API is introduced for SeaweedFS and RustFS providers.
 
 == Installation
 
@@ -32,7 +32,7 @@ Go file system interface implementation for link:https://github.com/seaweedfs/se
 
 [source%nowrap,bash]
 ----
-❯ go get -u github.com/transientvariable/lettuce
+❯ go get -u github.com/braver-braver/lettuce
 ----
 
 == Usage
@@ -45,7 +45,7 @@ package main
 import (
 	"io/fs"
 
-	"github.com/transientvariable/lettuce"
+	"github.com/braver-braver/lettuce"
 	"github.com/transientvariable/log-go"
 )
 

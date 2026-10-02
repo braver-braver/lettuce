@@ -3,8 +3,8 @@ package lettuce
 import (
 	"context"
 
-	"github.com/transientvariable/lettuce/cluster"
-	"github.com/transientvariable/lettuce/cluster/filer"
+	"github.com/braver-braver/lettuce/cluster"
+	"github.com/braver-braver/lettuce/cluster/filer"
 
 	gohttp "net/http"
 )

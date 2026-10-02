@@ -9,8 +9,8 @@ import (
 	"sync/atomic"
 
 	"github.com/transientvariable/anchor"
-	"github.com/transientvariable/lettuce/client"
-	"github.com/transientvariable/lettuce/pb/master_pb"
+	"github.com/braver-braver/lettuce/client"
+	"github.com/braver-braver/lettuce/pb/master_pb"
 	"github.com/transientvariable/log-go"
 
 	"google.golang.org/grpc"
